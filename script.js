@@ -23,6 +23,7 @@ const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 const special = [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-',
 '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~'];
 
+const generatePassword = () => {
 // object to track the user choices for password generation
 const props = {
   passwordLength: 0,
@@ -42,71 +43,37 @@ while (props.passwordLength < 8 || props.passwordLength > 128) {
 }
 
 
-let response;
 let numSelections = 0;
 do{
 
-  // repeat loop until user enters either 'y' or 'n'
-  while(true) {
-    response = prompt("Include lower case characters? (Y/N):");
-    if (response.toLowerCase() === 'y'){
-      props.lowercase = true;
-      numSelections++;
-      break;
-    } else if (response.toLowerCase() === 'n') {
-      // No need to assign a new value to props.lowercase as it's already false.
-      break;
-    }
-  }
+props.lowercase = confirm("Use lower case letters?")
+if (props.lowercase) {
+  numSelections++;
+}
 
-    
-  // repeat loop until user enters either 'y' or 'n'
-  while(true) {
-    response = prompt("Include upper case characters? (Y/N):");
-    if (response.toLowerCase() === 'y'){
-      props.uppercase = true;
-      numSelections++;
-      break;
-    } else if (response.toLowerCase() === 'n') {
-      // No need to assign a new value to props.uppercase as it's already false.
-      break;
-    }
-  }
+props.uppercase = confirm("Use upper case letters?")
+if (props.uppercase) {
+  numSelections++;
+}
 
-    
-  // repeat loop until user enters either 'y' or 'n'
-  while(true) {
-    response = prompt("Include numbers? (Y/N):");
-    if (response.toLowerCase() === 'y'){
-      props.numeric = true;
-      numSelections++;
-      break;
-    } else if (response.toLowerCase() === 'n') {
-      // No need to assign a new value to props.numeric as it's already false.
-      break;
-    }
-  }
+props.numeric = confirm("Use numbers?")
+if (props.numeric) {
+  numSelections++;
+}
 
-    
-  // repeat loop until user enters either 'y' or 'n'
-  while(true) {
-    response = prompt("Include special characters? (Y/N):");
-    if (response.toLowerCase() === 'y'){
-      props.special = true;
-      numSelections++;
-      break;
-    } else if (response.toLowerCase() === 'n') {
-      // No need to assign a new value to props.specialChars as it's already false.
-      break;
-    }
-  }
+props.specialChars = confirm("Use special characters?")
+if (props.specialChars) {
+  numSelections++;
+}
 }
 while (numSelections === 0);
 
-
+// push generated password into array
+// join together into string
 
 
 console.log(numSelections);
 
   
+}
 
