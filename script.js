@@ -12,15 +12,16 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
+// All character types
+const characterTypes = {
+  lowercase: 'abcdefghijklmnopqrstuvwxyz'.split(''),
+  uppercase: 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split(''),
+  numerical: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  special: [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~']
+  }
+  
 function generatePassword() {
 
-  // All character types
-  const characterTypes = {
-    lowercase: 'abcdefghijklmnopqrstuvwxyz'.split(''),
-    uppercase: 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split(''),
-    numerical: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-    special: [' ', '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~']
-    }
 
   let passwordLength = 0;
   const password = [];
